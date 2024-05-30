@@ -1,0 +1,34 @@
+
+  <h1 class="heading"><strong>HTTPClient </strong> Example</h1>
+  <p>
+    <button type="submit" (click)="getPosts()">Carica Tutti i Posts</button> 
+    <button type="submit" (click)="creatPost()">Crea Nuovo post</button> 
+  </p>
+  
+  <div *ngIf="errorMessage" class="alert alert-warning" role="alert">
+    <strong>Warning! </strong>{{errorMessage | json}}
+  </div>
+
+  <div *ngIf="no_data_found" class="alert alert-primary" role="alert">
+    <strong>Info! </strong> {{no_data_found_msg}}
+  </div>
+
+  <div *ngIf="loaded">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="col">User_ID</th>
+          <th class="col">Post_ID</th>
+          <th class="col">Title</th>
+          <th class="col">Body</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of repos">
+          <td>{{r.userId}}</td>
+          <td>{{r.id}}</td>
+          <td>{{r.title}}</td>
+          <td>{{r.body}}</td>
+      </tbody>
+    </table>
+  </div>
